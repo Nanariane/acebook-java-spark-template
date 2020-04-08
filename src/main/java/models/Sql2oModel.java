@@ -47,10 +47,19 @@ public class Sql2oModel implements Model {
     public List<Post> getAllPosts() {
         try (Connection conn = sql2o.open()) {
 
-            List<Post> items = conn.createQuery("select * from posts ORDER BY post_id ASC")
->>>>>>> 7063dad59ee4bc39f216524e7f7f8827e8e5d7fc
+        List<Post> items = conn.createQuery("select * from posts ORDER BY time DESC")
+
                     .executeAndFetch(Post.class);
             return items;
+        }
+    }
+
+    @Override
+    public List getUserName() {
+        try (Connection conn = sql2o.open()) {
+            List<UserName> userName = conn.createQuery("select user_name from person ORDER BY password DESC LIMIT 1")
+            .executeAndFetch(UserName.class);
+            return userName;
         }
     }
 

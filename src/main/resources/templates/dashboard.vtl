@@ -1,11 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background: linear-gradient(to left, #D3CCE3, #E9E4F0);">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+         <li class="nav-item active">
+          <a class="nav-link" >Friends</a>
+           </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Sign out</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search for friends!" aria-label="Search">
+        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
     <title>Acebook!</title>
     <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=El Messiri' rel='stylesheet'>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
 
 
     <style>
@@ -46,9 +70,20 @@
     }
 
     body {
-    background: linear-gradient(to right, #feac5e, #c779d0, #4bc0c8);
+
+    background: linear-gradient(to right, #DAE2F8, #D6A4A4);
+
     }
-    </style>
+
+    a{
+      color:#00000030;
+      font-size:2rem
+    }
+
+    .heart i.fa-heart{
+      color: #f44336
+    }
+  </style>
 
 
   </head>
@@ -58,6 +93,12 @@
     <div class="title-font">
         <h1 style="font-size: 50px; color: cornsilk;">&#129412; Acebook &#x2728;</h1>
     </div>
+
+     <div class="title-font">
+     #foreach( $user_name in $userName )
+          <h3 style="font-size: 30px; color: cornsilk;">Hello, $user_name.user_name </h3>
+            #end
+        </div>
 
     <div class="container text-area-styling">
       <form action="/dashboard" method="post" class="form-group d-flex flex-column align-items-center">
@@ -83,14 +124,23 @@
             <br>
             Posted on: $post.time
             <br>
-            <span class="likebtn-wrapper" data-theme="custom" data-icon_l="hrt1" data-icon_d="sml3-u" data-icon_l_c="#000000" data-icon_l_c_v="#ee1a44" data-icon_d_c_v="#1089c0" data-label_c_v="#ee1a44" data-counter_l_c="#eb1298" data-counter_d_c="#1089c0" data-bg_c="rgba(250,250,250,0)" data-bg_c_v="rgba(250,250,250,0)" data-brdr_c="rgba(250,250,250,0)" data-f_family="Georgia" data-identifier="item_1"></span>
-            <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
-            </th>
+            <a href="#" class="like">
+              <i class="fa fa-heart aria-hidden="true"></i>
+            </a>
           </tr>
            #end
         </tbody>
       </table>
     </div>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script>
+      $(document).ready(function(){
+        $(".like").click(function(){
+          $(this).toggleClass("heart")
+        });
+      });
+      </script>
 
   </body>
 

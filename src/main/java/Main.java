@@ -1,5 +1,6 @@
 import models.Model;
 import models.Sql2oModel;
+import models.UserName;
 import org.flywaydb.core.Flyway;
 import org.sql2o.Sql2o;
 import org.sql2o.converters.UUIDConverter;
@@ -10,6 +11,7 @@ import spark.Redirect;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
+import java.util.List;
 import java.util.UUID;
 
 import static spark.Spark.get;
@@ -63,6 +65,7 @@ public class Main {
             HashMap posts = new HashMap();
             posts.put("posts", model.getAllPosts());
 
+            posts.put("userName", model.getUserName());
 
             return new ModelAndView(posts, "templates/dashboard.vtl");
         }, new VelocityTemplateEngine());
@@ -73,7 +76,6 @@ public class Main {
             String content = request.queryParams("send_post");
             LocalDateTime currentTimestamp = LocalDateTime.now();
             model.createPost(content, String.valueOf(currentTimestamp));
-
 
             response.redirect("/dashboard");
             return null;
