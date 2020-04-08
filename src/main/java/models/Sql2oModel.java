@@ -16,6 +16,20 @@ public class Sql2oModel implements Model {
     }
 
     @Override
+    public void addUser(String user_name, String password) {
+        try (Connection conn = sql2o.beginTransaction()) {
+            UUID personUuid = UUID.randomUUID();
+            conn.createQuery("insert into person(user_id, user_name, password) VALUES (:user_id, :user_name, :password)")
+                    .addParameter("user_id", personUuid)
+                    .addParameter("user_name", user_name)
+                    .addParameter("password", password)
+                    .executeUpdate();
+            conn.commit();
+
+        }
+    }
+
+    @Override
     public void createPost(String content, String time) {
         try (Connection conn = sql2o.beginTransaction()) {
             UUID postsUuid = UUID.randomUUID();
@@ -32,23 +46,11 @@ public class Sql2oModel implements Model {
     @Override
     public List<Post> getAllPosts() {
         try (Connection conn = sql2o.open()) {
-            List<Post> items = conn.createQuery("select * FROM posts ORDER BY post_id ASC")
+
+            List<Post> items = conn.createQuery("select * from posts ORDER BY post_id ASC")
+>>>>>>> 7063dad59ee4bc39f216524e7f7f8827e8e5d7fc
                     .executeAndFetch(Post.class);
             return items;
-        }
-    }
-
-    @Override
-    public void addUser(String user_name, String password) {
-        try (Connection conn = sql2o.beginTransaction()) {
-            UUID personUuid = UUID.randomUUID();
-            conn.createQuery("insert into person(user_id, user_name, password) VALUES (:user_id, :user_name, :password)")
-                    .addParameter("user_id", personUuid)
-                    .addParameter("user_name", user_name)
-                    .addParameter("password", password)
-                    .executeUpdate();
-            conn.commit();
-
         }
     }
 
