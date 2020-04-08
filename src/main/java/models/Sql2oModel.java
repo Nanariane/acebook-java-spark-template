@@ -32,7 +32,7 @@ public class Sql2oModel implements Model {
     @Override
     public List<Post> getAllPosts() {
         try (Connection conn = sql2o.open()) {
-            List<Post> items = conn.createQuery("select * from posts")
+            List<Post> items = conn.createQuery("select * FROM posts ORDER BY post_id ASC")
                     .executeAndFetch(Post.class);
             return items;
         }
