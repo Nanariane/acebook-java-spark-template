@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background: linear-gradient(to left, #D3CCE3, #E9E4F0);">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+         <li class="nav-item active">
+          <a class="nav-link" >Friends</a>
+           </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Sign out</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search for friends!" aria-label="Search">
+        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+    <title>Sign up for Acebook!</title>
+    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=El Messiri' rel='stylesheet'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+
+
+    <style>
+    .title-font{
+        font-family: 'Sofia';
+        font-size: 30px;
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .text-area-styling{
+      width: 30%;
+      font-family: 'El Messiri';
+      flex-wrap: wrap;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+      width: 50%;
+      font-size: 2rem;
+    }
+
+
+    .sign-in-form{
+      font-family: 'El Messiri';
+      align-items: stretch;
+      width: 20%;
+      font-size: 18px;
+    }
+
+
+
+    body {
+
+    background: linear-gradient(to right, #DAE2F8, #D6A4A4);
+
+    }
+
+  </style>
+
+
+  </head>
+
+
+  <body>
+   <div class="title-font">
+           <h1 style="font-size: 50px; color: cornsilk;">Sign up for Acebook!</h1>
+       </div>
+
+       <div class="container sign-in-form">
+         <form method="post" action="/signup" style="display: flex; flex-direction: column;">
+          <div class="form-group" >
+             <label for="first_name">First name</label>
+             <input style="height: 35px; font-size:18px;" type="user_name" class="form-control" id="first_name" name="first_name" aria-describedby="emailHelp">
+           </div>
+
+           <div class="form-group" >
+            <label for="last_name">Last name</label>
+            <input style="height: 35px; font-size:18px;" type="user_name" class="form-control" id="last_name" name="last_name" aria-describedby="emailHelp">
+          </div>
+
+           <div class="form-group" >
+             <label for="user_name">Username</label>
+             <input style="height: 35px; font-size:18px;" type="user_name" class="form-control" id="user_name_1" name="user_name_1" aria-describedby="emailHelp">
+           </div>
+
+           <div class="form-group" >
+              <label for="email">Email</label>
+              <input style="height: 35px; font-size:18px;" type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+            </div>
+
+           <div class="form-group">
+             <label for="password">Password</label>
+             <input style="height: 35px; font-size:18px;" type="password" class="form-control" id="psw" name="psw">
+           </div>
+
+           <button style="height: 35px; width: 100px; font-size: 1.5rem; align-self: center;" type="submit" class="btn btn-primary">Sign me up!</button>
+
+         </form>
+       </div>
+
+  </body>
+
+</html>

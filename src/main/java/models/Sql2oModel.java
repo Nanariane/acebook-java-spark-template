@@ -63,4 +63,21 @@ public class Sql2oModel implements Model {
         }
     }
 
+    @Override
+    public void signUp(String first_name, String last_name, String user_name, String email, String password) {
+        try (Connection conn = sql2o.beginTransaction()) {
+            UUID signUpUuid = UUID.randomUUID();
+            conn.createQuery("insert into signup(user_id, first_name, last_name, user_name, email, password) VALUES (:user_id, :first_name, :last_name, :user_name, :email, :password)")
+                    .addParameter("user_id", signUpUuid)
+                    .addParameter("first_name", first_name)
+                    .addParameter("last_name", last_name)
+                    .addParameter("user_name", user_name)
+                    .addParameter("email", email)
+                    .addParameter("password", password)
+                    .executeUpdate();
+            conn.commit();
+
+        }
+    }
+
 }

@@ -83,7 +83,28 @@ public class Main {
             return null;
         });
 
+      get("/signup", (request, response) -> {
+
+//            HashMap homepage = new HashMap();
+
+        return new ModelAndView(new HashMap(), "templates/signup.vtl");
+      }, new VelocityTemplateEngine());
 
 
+      post("/signup", (request, response) -> {
+          String first_name = request.queryParams("first_name");
+          String last_name = request.queryParams("last_name");
+          String user_name = request.queryParams("user_name_1");
+          String email = request.queryParams("email");
+          String password = request.queryParams("psw");
+          model.signUp(first_name, last_name, user_name, email, password);
+
+          response.redirect("/");
+          return null;
+        }
+
+      );
     }
+
+
 }
