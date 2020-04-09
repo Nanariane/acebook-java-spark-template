@@ -77,9 +77,13 @@ public class Main {
             LocalDateTime currentTimestamp = LocalDateTime.now();
             model.createPost(content, String.valueOf(currentTimestamp));
 
+
+
             response.redirect("/dashboard");
             return null;
         });
+
+
 
     }
 }
