@@ -104,6 +104,13 @@ public class Main {
         }
 
       );
+
+        get("/friends", (request, response) -> {
+
+//            HashMap homepage = new HashMap();
+
+            return new ModelAndView(new HashMap(), "templates/friends.vtl");
+        }, new VelocityTemplateEngine());
     }
 
 

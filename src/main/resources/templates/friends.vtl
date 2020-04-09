@@ -2,7 +2,7 @@
 <html>
   <head>
 
-    <title>Acebook!</title>
+    <title>Your Friends!</title>
     <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=El Messiri' rel='stylesheet'>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
@@ -46,29 +46,7 @@
         align-items: center;
     }
 
-    .text-area-styling{
-      width: 30%;
-      font-family: 'El Messiri';
-      flex-wrap: wrap;
-      align-content: center;
-      justify-content: center;
-      align-items: center;
-      width: 50%;
-      font-size: 2rem;
-    }
 
-    .post-table{
-
-      width: 30%;
-      font-family: 'El Messiri';
-      flex-wrap: wrap;
-      align-content: center;
-      justify-content: center;
-      align-items: center;
-      width: 50%;
-      font-size: 1.5rem;
-
-    }
 
     body {
 
@@ -92,56 +70,17 @@
 
   <body>
     <div class="title-font">
-        <h1 style="font-size: 50px; color: cornsilk;">&#129412; Acebook &#x2728;</h1>
+        <h1 style="font-size: 50px; color: cornsilk;">&#x1F46F; Friends &#x1F46F;</h1>
     </div>
 
-     <div class="title-font">
-     #foreach( $user_name in $userName )
-          <h3 style="font-size: 30px; color: cornsilk;">Hello, $user_name.user_name </h3>
-            #end
-        </div>
-
-    <div class="container text-area-styling">
-      <form action="/dashboard" method="post" class="form-group d-flex flex-column align-items-center">
-          <label for="exampleFormControlTextarea1" style="color:cornsilk">Any thoughts today? :</label>
-           <textarea class="form-control" id="exampleFormControlTextarea1" name= "send_post" rows="3" style="font-size:20px;"></textarea>
-          <button type="submit" class="btn btn-primary" style="width: 100px; font-size:18px;">Send</button>
-      </form>
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="./image/avril.png" alt="Card image cap">
+      <div class="card-body">
+        <p class="card-text">Avril</p>
+      </div>
     </div>
 
-    <div class="container post-table">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col" style="font-size:20px; color:cornsilk">Previous post</th>
-          </tr>
-        </thead>
 
-        <tbody>
-          #foreach( $post in $posts )
-          <tr>
-            <th scope="row">
-            $post.content
-            <br>
-            Posted on: $post.time
-            <br>
-            <p class="like custom-button">
-              <i class="fa fa-heart aria-hidden="true"></i>
-            </>
-          </tr>
-           #end
-        </tbody>
-      </table>
-    </div>
-
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-      <script>
-      $(document).ready(function(){
-        $(".like").click(function(){
-          $(this).toggleClass("heart")
-        });
-      });
-      </script>
 
   </body>
 
